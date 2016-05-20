@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF0778E21CEF7EFE00651BA2 /* TTTSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0778E11CEF7EFE00651BA2 /* TTTSolver.swift */; };
+		FF0778E41CEF910800651BA2 /* TTTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0778E31CEF910800651BA2 /* TTTModel.swift */; };
 		FF0C01671CEB868B00D98F9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C01661CEB868B00D98F9B /* AppDelegate.swift */; };
 		FF0C01691CEB868B00D98F9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C01681CEB868B00D98F9B /* ViewController.swift */; };
 		FF0C016C1CEB868B00D98F9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0C016A1CEB868B00D98F9B /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF0778E11CEF7EFE00651BA2 /* TTTSolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTTSolver.swift; sourceTree = "<group>"; };
+		FF0778E31CEF910800651BA2 /* TTTModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTTModel.swift; sourceTree = "<group>"; };
 		FF0C01631CEB868B00D98F9B /* TTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF0C01661CEB868B00D98F9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF0C01681CEB868B00D98F9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				FF0C016D1CEB868B00D98F9B /* Assets.xcassets */,
 				FF0C016F1CEB868B00D98F9B /* LaunchScreen.storyboard */,
 				FF0C01721CEB868B00D98F9B /* Info.plist */,
+				FF0778E11CEF7EFE00651BA2 /* TTTSolver.swift */,
+				FF0778E31CEF910800651BA2 /* TTTModel.swift */,
 			);
 			path = TTT;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			files = (
 				FF0C01691CEB868B00D98F9B /* ViewController.swift in Sources */,
 				FF0C01671CEB868B00D98F9B /* AppDelegate.swift in Sources */,
+				FF0778E41CEF910800651BA2 /* TTTModel.swift in Sources */,
+				FF0778E21CEF7EFE00651BA2 /* TTTSolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +296,7 @@
 				FF0C01771CEB868B00D98F9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,44 +8,14 @@
 
 import UIKit
 
-enum Player {
-    case x
-    case o
-    
-    var name: String  {
-        switch self {
-            case .x:
-                return "X"
-            case .o:
-                return "O"
-        }
-    }
-    
-    var flip: Player {
-        switch self {
-            case .x:
-                return .o
-            case .o:
-                return .x
-        }
-    }
-}
-
-
 class TTTCell: UICollectionViewCell {
-    var player: Player? {
-        didSet {
-            nameLabel.text = player?.name
-        }
-    }
-
     @IBOutlet weak var nameLabel: UILabel!
-
 }
 
 class ViewController: UICollectionViewController {
-    let dim = 3
-    var currentPlayer: Player?
+    let dim: Int = 3
+    var currentPlayer: TTTPlayer!
+    var board: TTTBoard!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +23,7 @@ class ViewController: UICollectionViewController {
         collectionView?.backgroundColor = UIColor.lightGrayColor()
         
         currentPlayer = .x
+        board = TTTBoard(withDimension:dim)
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,21 +31,28 @@ class ViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return dim
+    }
+    
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Int(pow(Double(dim), Double(2)))
+        return dim
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: TTTCell = collectionView.dequeueReusableCellWithReuseIdentifier("TTTCell", forIndexPath: indexPath) as! TTTCell
         cell.backgroundColor = UIColor.whiteColor()
+        if let move: TTTMove = board.moves[indexPath.section][indexPath.row] {
+            cell.nameLabel.text = move.player.name
+        }
         return cell
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! TTTCell
-        if (cell.player == nil) {
-            cell.player = currentPlayer
+        if board.moves[indexPath.section][indexPath.row] == nil {
+            board.moves[indexPath.section][indexPath.row] = TTTMove(withPlayer: currentPlayer)
             currentPlayer = currentPlayer?.flip
+            collectionView.reloadItemsAtIndexPaths([indexPath])
         }
     }
 
