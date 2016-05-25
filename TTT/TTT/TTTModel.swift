@@ -40,17 +40,19 @@ struct TTTSolution {
     let player: TTTPlayer?
     let startIndex: TTTBoardIndex
     let direction: TTTBoardDirection
-    
+
     func containsIndex(index: TTTBoardIndex) -> Bool {
-        let (rowDelta, colDelta) = direction.traversalDeltas()
         let totalRowDelta = index.row - startIndex.row
         let totalColDelta = index.col - startIndex.col
-        if (totalRowDelta != 0) {
-            return totalColDelta == totalRowDelta * colDelta
-        } else if (totalColDelta != 0) {
-            return totalRowDelta == totalColDelta * rowDelta
-        } else {
-            return true
+        switch direction {
+        case TTTBoardDirection.HORIZONTAL:
+            return index.row == startIndex.row
+        case TTTBoardDirection.VERTICAL:
+            return index.col == startIndex.col
+        case TTTBoardDirection.DIAGONAL:
+            return totalRowDelta == totalColDelta
+        case TTTBoardDirection.REVERSE_DIAGONAL:
+            return totalRowDelta == -totalColDelta
         }
     }
 }
@@ -62,6 +64,9 @@ struct TTTBoardIndex {
     init(row: Int, col: Int) { self.row = row; self.col = col; }
     init(indexPath: NSIndexPath) {
         self.init(row: indexPath.section, col: indexPath.row)
+    }
+    func toIndexPath() -> NSIndexPath {
+        return NSIndexPath.init(forRow: col, inSection: row)
     }
 }
 
@@ -93,7 +98,7 @@ struct TTTBoard {
     init (withDimension dim: Int) {
         self.dim = dim
         moves = Array(count: dim, repeatedValue: [TTTMove?](count: dim, repeatedValue: nil))
-        
+
         // Enumerate all possible solutions for a board of this dimension
         var solutions: [TTTSolution] = [
             TTTSolution(
@@ -125,9 +130,9 @@ struct TTTBoard {
         }
         self.solutions = solutions
     }
-    
+
     mutating func placeMove(move: TTTMove) {
-        assert(getMove(atIndex:move.index) == nil)
+        assert(getMove(atIndex: move.index) == nil)
         self.moves[move.index.row][move.index.col] = move
     }
 
@@ -149,13 +154,13 @@ struct TTTBoard {
         }
         return counts
     }
-    
+
     func getPossibleMoves(player: TTTPlayer) -> [TTTMove] {
         var possibleMoves = [TTTMove]()
         for i in 0..<dim {
             for j in 0..<dim {
                 if moves[i][j] == nil {
-                    possibleMoves.append(TTTMove(player:player, index:TTTBoardIndex(row:i, col:j)))
+                    possibleMoves.append(TTTMove(player: player, index: TTTBoardIndex(row: i, col: j)))
                 }
             }
         }

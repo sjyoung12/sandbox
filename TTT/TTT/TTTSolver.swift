@@ -14,9 +14,9 @@ struct TTTSolver {
 
     static func findSolution(board: TTTBoard, lastMoveIndex:TTTBoardIndex?) -> TTTSolution? {
         for potentialSolution: TTTSolution in board.solutions {
-            if lastMoveIndex != nil && potentialSolution.containsIndex(lastMoveIndex!) {
-                continue
-            }
+//            if lastMoveIndex != nil && potentialSolution.containsIndex(lastMoveIndex!) {
+//                continue
+//            }
             let counts = board.tabulateMovesByPlayer(potentialSolution.startIndex, direction: potentialSolution.direction)
             for (player, count) in counts {
                 if count == board.dim {
