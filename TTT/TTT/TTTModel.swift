@@ -33,9 +33,7 @@ enum TTTPlayer {
 
 struct TTTMove {
     let player: TTTPlayer
-    init (withPlayer player: TTTPlayer) {
-        self.player = player
-    }
+    let index: TTTBoardIndex
 }
 
 struct TTTSolution {
@@ -95,6 +93,8 @@ struct TTTBoard {
     init (withDimension dim: Int) {
         self.dim = dim
         moves = Array(count: dim, repeatedValue: [TTTMove?](count: dim, repeatedValue: nil))
+        
+        // Enumerate all possible solutions for a board of this dimension
         var solutions: [TTTSolution] = [
             TTTSolution(
                 player: nil,
@@ -125,6 +125,11 @@ struct TTTBoard {
         }
         self.solutions = solutions
     }
+    
+    mutating func placeMove(move: TTTMove) {
+        assert(getMove(atIndex:move.index) == nil)
+        self.moves[move.index.row][move.index.col] = move
+    }
 
     func getMove(atIndex index: TTTBoardIndex) -> TTTMove? {
         return moves[index.row][index.col]
@@ -143,5 +148,17 @@ struct TTTBoard {
             j += colDelta
         }
         return counts
+    }
+    
+    func getPossibleMoves(player: TTTPlayer) -> [TTTMove] {
+        var possibleMoves = [TTTMove]()
+        for i in 0..<dim {
+            for j in 0..<dim {
+                if moves[i][j] == nil {
+                    possibleMoves.append(TTTMove(player:player, index:TTTBoardIndex(row:i, col:j)))
+                }
+            }
+        }
+        return possibleMoves
     }
 }

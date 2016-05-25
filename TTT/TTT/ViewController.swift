@@ -56,10 +56,10 @@ class ViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let index = TTTBoardIndex(indexPath:indexPath)
-        if currentPlayer != nil && board.getMove(atIndex:index) == nil {
-            board.moves[indexPath.section][indexPath.row] = TTTMove(withPlayer: currentPlayer)
-            currentSolution = solver.findSolution(board, lastMoveIndex: index)
+        let index = TTTBoardIndex(indexPath: indexPath)
+        if currentPlayer != nil && board.getMove(atIndex: index) == nil {
+            board.placeMove(TTTMove(player: currentPlayer, index: index))
+            currentSolution = TTTSolver.findSolution(board, lastMoveIndex: index)
             if currentSolution != nil {
                 currentPlayer = nil
                 collectionView.reloadData()
@@ -73,19 +73,38 @@ class ViewController: UICollectionViewController {
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(
+        collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    {
         let cellWidth = (collectionView.frame.width - (CGFloat(dim) - 1)) / CGFloat(dim)
         return CGSizeMake(cellWidth, cellWidth)
     }
 
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumInteritemSpacingForSectionAtIndex
+        section: Int) -> CGFloat
+    {
         return 1.0
     }
 
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(
+        collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAtIndex
+        section: Int) -> CGFloat
+    {
         return 1.0
     }
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+
+    func collectionView(
+        collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAtIndex
+        section: Int) -> UIEdgeInsets
+    {
         return UIEdgeInsetsMake(0.0, 0.0, 1.0, 0.0)
     }
 }
