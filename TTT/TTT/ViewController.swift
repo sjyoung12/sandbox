@@ -56,9 +56,10 @@ class ViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if currentPlayer != nil && board.getMove(atIndex: TTTBoardIndex(indexPath: indexPath)) == nil {
+        let index = TTTBoardIndex(indexPath:indexPath)
+        if currentPlayer != nil && board.getMove(atIndex:index) == nil {
             board.moves[indexPath.section][indexPath.row] = TTTMove(withPlayer: currentPlayer)
-            currentSolution = solver.findSolution(board)
+            currentSolution = solver.findSolution(board, lastMoveIndex: index)
             if currentSolution != nil {
                 currentPlayer = nil
                 collectionView.reloadData()
@@ -83,6 +84,9 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 1.0
+    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(0.0, 0.0, 1.0, 0.0)
     }
 }
 

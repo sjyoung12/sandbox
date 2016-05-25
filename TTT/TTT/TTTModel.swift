@@ -90,18 +90,11 @@ enum TTTBoardDirection {
 struct TTTBoard {
     let dim: Int
     var moves: [[TTTMove?]]
+    let solutions: [TTTSolution]
 
     init (withDimension dim: Int) {
         self.dim = dim
         moves = Array(count: dim, repeatedValue: [TTTMove?](count: dim, repeatedValue: nil))
-    }
-
-    func getMove(atIndex index: TTTBoardIndex) -> TTTMove? {
-        return moves[index.row][index.col]
-    }
-
-    func possibleSolutions() -> [TTTSolution] {
-        // TODO: include only solutions that could have been completed by the most recent move
         var solutions: [TTTSolution] = [
             TTTSolution(
                 player: nil,
@@ -130,7 +123,11 @@ struct TTTBoard {
                 )
             )
         }
-        return solutions
+        self.solutions = solutions
+    }
+
+    func getMove(atIndex index: TTTBoardIndex) -> TTTMove? {
+        return moves[index.row][index.col]
     }
 
     func tabulateMovesByPlayer(startIndex: TTTBoardIndex, direction: TTTBoardDirection) -> [TTTPlayer: Int] {
