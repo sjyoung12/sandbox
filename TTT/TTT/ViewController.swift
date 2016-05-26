@@ -30,31 +30,34 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.whiteColor()
         collectionView?.backgroundColor = UIColor.lightGrayColor()
 
-        currentPlayer = .x
-        board = TTTBoard(withDimension: dim)
+        resetBoard()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func gameOver() -> Bool {
+        return currentSolution != nil || board.getPossibleMoves(currentPlayer).count == 0;
     }
 
     func didPlaceMove(move: TTTMove) {
         currentSolution = TTTSolver.findSolution(board, lastMoveIndex: move.index)
-        if currentSolution != nil {
-            currentPlayer = nil
-            collectionView?.reloadData()
-        } else {
+        if (!gameOver()) {
             currentPlayer = currentPlayer?.flip
-            collectionView?.reloadItemsAtIndexPaths([move.index.toIndexPath()])
-//            if currentPlayer == TTTPlayer.o {
-//                let minimax = TTTMiniMax(player: currentPlayer, board: board)
-//                if let nextMove = minimax.chooseNextMove() {
-//                    board.placeMove(nextMove)
-//                    didPlaceMove(nextMove)
-//                }
-//            }
+            if currentPlayer == TTTPlayer.o {
+                let minimax = TTTMiniMax(player: currentPlayer, board: board)
+                if let nextMove = minimax.chooseNextMove() {
+                    board.placeMove(nextMove)
+                    self.didPlaceMove(nextMove)
+                    return;
+                }
+            }
         }
+        collectionView?.reloadData()
+    }
+
+    func resetBoard() {
+        currentPlayer = .x
+        board = TTTBoard(withDimension: dim)
+        collectionView?.reloadData()
+        currentSolution = nil
     }
 }
 
@@ -62,11 +65,11 @@ extension ViewController: UICollectionViewDataSource {
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return dim
     }
-    
+
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dim
     }
-    
+
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: TTTCell = collectionView.dequeueReusableCellWithReuseIdentifier("TTTCell", forIndexPath: indexPath) as! TTTCell
         if let move: TTTMove = board.moves[indexPath.section][indexPath.row] {
@@ -79,11 +82,15 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let index = TTTBoardIndex(indexPath: indexPath)
-        if currentPlayer != nil && board.getMove(atIndex: index) == nil {
-            let move = TTTMove(player: currentPlayer, index: index)
-            board.placeMove(move)
-            self.didPlaceMove(move)
+        if !gameOver() {
+            let index = TTTBoardIndex(indexPath: indexPath)
+            if board.getMove(atIndex: index) == nil {
+                let move = TTTMove(player: currentPlayer, index: index)
+                board.placeMove(move)
+                didPlaceMove(move)
+            }
+        } else {
+            resetBoard()
         }
     }
 }

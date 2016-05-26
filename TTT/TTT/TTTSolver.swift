@@ -35,11 +35,14 @@ struct TTTMiniMax {
     
     func chooseNextMove() -> TTTMove? {
         var bestMove: TTTMove?
-        var bestMoveScore: Int = 0
+        var bestMoveScore: Int = -99
+        
+        let nextPlayer = player.flip
         for move: TTTMove in board.getPossibleMoves(player) {
             var newBoard = board
             newBoard.placeMove(move)
-            let currentScore: Int = minimax(newBoard, activePlayer: player)
+            let currentScore: Int = minimax(newBoard, activePlayer: nextPlayer)
+            print("FINAL RESULT: If \(player.name) places at (\(move.index.row), \(move.index.col)), the outcome will be \(currentScore)\n\n")
             if currentScore > bestMoveScore {
                 bestMove = move
                 bestMoveScore = currentScore
@@ -48,20 +51,24 @@ struct TTTMiniMax {
         return bestMove
     }
 
-    func minimax(board: TTTBoard, activePlayer: TTTPlayer, depth: Int=0) -> Int {
+    func minimax(board: TTTBoard, activePlayer: TTTPlayer) -> Int {
         if let solution = TTTSolver.findSolution(board, lastMoveIndex: nil) {
-            if solution.player == player {
-                return 10
-            } else {
-                return -10
-            }
+            // Base case: game has been won
+            return solution.player == player ? 10 : -10
         }
-        // Initialize with 0, to represent case where no moves are left
-        var scores: [Int] = [0]
-        for move: TTTMove in board.getPossibleMoves(activePlayer) {
+        // Initialize with 0 to represent case where no moves are left
+        let moves = board.getPossibleMoves(activePlayer)
+        if moves.count == 0 {
+            return 0
+        }
+        var scores: [Int] = [Int]()
+        let nextPlayer = activePlayer.flip
+        for move: TTTMove in moves {
             var newBoard = board
             newBoard.placeMove(move)
-            scores.append(minimax(newBoard, activePlayer: activePlayer.flip, depth: depth + 1))
+            let score = minimax(newBoard, activePlayer: nextPlayer)
+            //print("If \(activePlayer.name) places at (\(move.index.row), \(move.index.col)), the outcome will be \(score)")
+            scores.append(score)
         }
         return (activePlayer == player ? scores.maxElement() : scores.minElement())!
     }
