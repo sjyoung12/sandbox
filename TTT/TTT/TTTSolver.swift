@@ -8,23 +8,6 @@
 
 import Foundation
 
-
-
-struct TTTSolver {
-
-    static func findSolution(board: TTTBoard) -> TTTSolution? {
-        for potentialSolution: TTTSolution in board.solutions {
-            let counts = board.tabulateMovesByPlayer(potentialSolution.startIndex, direction: potentialSolution.direction)
-            for (player, count) in counts {
-                if count == board.dim {
-                    return TTTSolution(player: player, startIndex: potentialSolution.startIndex, direction: potentialSolution.direction)
-                }
-            }
-        }
-        return nil
-    }
-}
-
 struct TTTMiniMax {
     
     let player: TTTPlayer
@@ -49,7 +32,7 @@ struct TTTMiniMax {
     }
 
     func minimax(board: TTTBoard, activePlayer: TTTPlayer) -> Int {
-        if let solution = TTTSolver.findSolution(board) {
+        if let solution:TTTSolution = board.solutions.first {
             // Base case: game has been won
             return solution.player == player ? 10 : -10
         }

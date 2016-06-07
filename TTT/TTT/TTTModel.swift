@@ -37,9 +37,20 @@ struct TTTMove {
 }
 
 struct TTTSolution {
-    let player: TTTPlayer?
+    var player: TTTPlayer?
     let startIndex: TTTBoardIndex
     let direction: TTTBoardDirection
+    let dim: Int
+
+    var counts = [TTTPlayer: Int]()
+    
+    init(startIndex: TTTBoardIndex, direction: TTTBoardDirection, dim: Int) {
+        counts = [TTTPlayer: Int]()
+        player = nil
+        self.direction = direction
+        self.startIndex = startIndex
+        self.dim = dim
+    }
 
     func containsIndex(index: TTTBoardIndex) -> Bool {
         let totalRowDelta = index.row - startIndex.row
@@ -53,6 +64,17 @@ struct TTTSolution {
             return totalRowDelta == totalColDelta
         case TTTBoardDirection.REVERSE_DIAGONAL:
             return totalRowDelta == -totalColDelta
+        }
+    }
+    
+    mutating func recordMoveByPlayer(player: TTTPlayer) -> Bool {
+        let newCount:Int = (counts[player] ?? 0) + 1
+        counts[player] = newCount
+        if (newCount == dim) {
+            self.player = player
+            return true
+        } else {
+            return false
         }
     }
 }
@@ -93,66 +115,68 @@ enum TTTBoardDirection {
 struct TTTBoard {
     let dim: Int
     var moves: [[TTTMove?]]
-    let solutions: [TTTSolution]
+    var rowCandidates: [TTTSolution]
+    var colCandidates: [TTTSolution]
+    var diagCandidate: TTTSolution
+    var reverseDiagCandidate: TTTSolution
+    var solutions: [TTTSolution]
 
     init (withDimension dim: Int) {
         self.dim = dim
         moves = Array(count: dim, repeatedValue: [TTTMove?](count: dim, repeatedValue: nil))
+        solutions = [TTTSolution]()
 
         // Enumerate all possible solutions for a board of this dimension
-        var solutions: [TTTSolution] = [
-            TTTSolution(
-                player: nil,
-                startIndex: TTTBoardIndex(row: 0, col: 0),
-                direction: TTTBoardDirection.DIAGONAL
-            ),
-            TTTSolution(
-                player: nil,
-                startIndex: TTTBoardIndex(row: dim - 1, col: 0),
-                direction: TTTBoardDirection.REVERSE_DIAGONAL
-            )
-        ]
+        diagCandidate = TTTSolution(
+            startIndex: TTTBoardIndex(row: 0, col: 0),
+            direction: TTTBoardDirection.DIAGONAL,
+            dim: dim
+        )
+        reverseDiagCandidate = TTTSolution(
+            startIndex: TTTBoardIndex(row: dim - 1, col: 0),
+            direction: TTTBoardDirection.REVERSE_DIAGONAL,
+            dim: dim
+        )
+        rowCandidates = [TTTSolution]()
+        colCandidates = [TTTSolution]()
+
         for i in 0..<dim {
-            solutions.append(
+            rowCandidates.append(
                 TTTSolution(
-                    player: nil,
                     startIndex: TTTBoardIndex(row: i, col: 0),
-                    direction: TTTBoardDirection.HORIZONTAL
+                    direction: TTTBoardDirection.HORIZONTAL,
+                    dim: self.dim
                 )
             )
-            solutions.append(
+            colCandidates.append(
                 TTTSolution(
-                    player: nil,
                     startIndex: TTTBoardIndex(row: 0, col: i),
-                    direction: TTTBoardDirection.VERTICAL
+                    direction: TTTBoardDirection.VERTICAL,
+                    dim: self.dim
                 )
             )
         }
-        self.solutions = solutions
     }
 
     mutating func placeMove(move: TTTMove) {
         assert(getMove(atIndex: move.index) == nil)
         self.moves[move.index.row][move.index.col] = move
+        if (rowCandidates[move.index.row].recordMoveByPlayer(move.player)) {
+            solutions.append(rowCandidates[move.index.row])
+        }
+        if (colCandidates[move.index.col].recordMoveByPlayer(move.player)) {
+            solutions.append(colCandidates[move.index.col])
+        }
+        if (diagCandidate.containsIndex(move.index) && diagCandidate.recordMoveByPlayer(move.player)) {
+            solutions.append(diagCandidate)
+        }
+        if (reverseDiagCandidate.containsIndex(move.index) && reverseDiagCandidate.recordMoveByPlayer(move.player)) {
+            solutions.append(reverseDiagCandidate)
+        }
     }
 
     func getMove(atIndex index: TTTBoardIndex) -> TTTMove? {
         return moves[index.row][index.col]
-    }
-
-    func tabulateMovesByPlayer(startIndex: TTTBoardIndex, direction: TTTBoardDirection) -> [TTTPlayer: Int] {
-        var counts: [TTTPlayer: Int] = [TTTPlayer: Int]()
-        let (rowDelta, colDelta) = direction.traversalDeltas()
-        var i: Int = startIndex.row
-        var j: Int = startIndex.col
-        while (i < dim && j < dim && i >= 0 && j >= 0) {
-            if let move: TTTMove = moves[i][j] {
-                counts[move.player] = (counts[move.player] ?? 0) + 1
-            }
-            i += rowDelta
-            j += colDelta
-        }
-        return counts
     }
 
     func getPossibleMoves(player: TTTPlayer) -> [TTTMove] {

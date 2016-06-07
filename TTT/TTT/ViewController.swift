@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     var currentPlayer: TTTPlayer!
     var currentSolution: TTTSolution?
     var board: TTTBoard!
-    let solver: TTTSolver = TTTSolver()
 
     @IBOutlet var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -38,7 +37,7 @@ class ViewController: UIViewController {
     }
 
     func didPlaceMove(move: TTTMove) {
-        currentSolution = TTTSolver.findSolution(board)
+        currentSolution = board.solutions.first
         if (!gameOver()) {
             currentPlayer = currentPlayer?.flip
             if currentPlayer == TTTPlayer.o {
