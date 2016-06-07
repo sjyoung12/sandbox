@@ -12,11 +12,8 @@ import Foundation
 
 struct TTTSolver {
 
-    static func findSolution(board: TTTBoard, lastMoveIndex:TTTBoardIndex?) -> TTTSolution? {
+    static func findSolution(board: TTTBoard) -> TTTSolution? {
         for potentialSolution: TTTSolution in board.solutions {
-//            if lastMoveIndex != nil && potentialSolution.containsIndex(lastMoveIndex!) {
-//                continue
-//            }
             let counts = board.tabulateMovesByPlayer(potentialSolution.startIndex, direction: potentialSolution.direction)
             for (player, count) in counts {
                 if count == board.dim {
@@ -52,7 +49,7 @@ struct TTTMiniMax {
     }
 
     func minimax(board: TTTBoard, activePlayer: TTTPlayer) -> Int {
-        if let solution = TTTSolver.findSolution(board, lastMoveIndex: nil) {
+        if let solution = TTTSolver.findSolution(board) {
             // Base case: game has been won
             return solution.player == player ? 10 : -10
         }

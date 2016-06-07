@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     }
 
     func didPlaceMove(move: TTTMove) {
-        currentSolution = TTTSolver.findSolution(board, lastMoveIndex: move.index)
+        currentSolution = TTTSolver.findSolution(board)
         if (!gameOver()) {
             currentPlayer = currentPlayer?.flip
             if currentPlayer == TTTPlayer.o {
