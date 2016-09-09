@@ -11,10 +11,10 @@
 		FF27DDA91D83657300F9C19D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDA81D83657300F9C19D /* AppDelegate.m */; };
 		FF27DDAC1D83657300F9C19D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDAB1D83657300F9C19D /* FirstViewController.m */; };
 		FF27DDAF1D83657300F9C19D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDAE1D83657300F9C19D /* SecondViewController.m */; };
-		FF27DDB21D83657300F9C19D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF27DDB01D83657300F9C19D /* Main.storyboard */; };
 		FF27DDB41D83657300F9C19D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF27DDB31D83657300F9C19D /* Assets.xcassets */; };
-		FF27DDB71D83657300F9C19D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF27DDB51D83657300F9C19D /* LaunchScreen.storyboard */; };
 		FF27DDC21D83657300F9C19D /* piggyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDC11D83657300F9C19D /* piggyTests.m */; };
+		FF27DDCE1D8366C800F9C19D /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDCD1D8366C800F9C19D /* SummaryViewController.m */; };
+		FF27DDD11D8366E000F9C19D /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDD01D8366E000F9C19D /* InputViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,13 +36,15 @@
 		FF27DDAB1D83657300F9C19D /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		FF27DDAD1D83657300F9C19D /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		FF27DDAE1D83657300F9C19D /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		FF27DDB11D83657300F9C19D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF27DDB31D83657300F9C19D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FF27DDB61D83657300F9C19D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF27DDB81D83657300F9C19D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF27DDBD1D83657300F9C19D /* piggyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = piggyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF27DDC11D83657300F9C19D /* piggyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = piggyTests.m; sourceTree = "<group>"; };
 		FF27DDC31D83657300F9C19D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF27DDCC1D8366C800F9C19D /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
+		FF27DDCD1D8366C800F9C19D /* SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryViewController.m; sourceTree = "<group>"; };
+		FF27DDCF1D8366E000F9C19D /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
+		FF27DDD01D8366E000F9C19D /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,11 +92,13 @@
 				FF27DDAB1D83657300F9C19D /* FirstViewController.m */,
 				FF27DDAD1D83657300F9C19D /* SecondViewController.h */,
 				FF27DDAE1D83657300F9C19D /* SecondViewController.m */,
-				FF27DDB01D83657300F9C19D /* Main.storyboard */,
 				FF27DDB31D83657300F9C19D /* Assets.xcassets */,
-				FF27DDB51D83657300F9C19D /* LaunchScreen.storyboard */,
 				FF27DDB81D83657300F9C19D /* Info.plist */,
 				FF27DDA41D83657300F9C19D /* Supporting Files */,
+				FF27DDCC1D8366C800F9C19D /* SummaryViewController.h */,
+				FF27DDCD1D8366C800F9C19D /* SummaryViewController.m */,
+				FF27DDCF1D8366E000F9C19D /* InputViewController.h */,
+				FF27DDD01D8366E000F9C19D /* InputViewController.m */,
 			);
 			path = piggy;
 			sourceTree = "<group>";
@@ -196,9 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF27DDB71D83657300F9C19D /* LaunchScreen.storyboard in Resources */,
 				FF27DDB41D83657300F9C19D /* Assets.xcassets in Resources */,
-				FF27DDB21D83657300F9C19D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,8 +219,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF27DDAF1D83657300F9C19D /* SecondViewController.m in Sources */,
+				FF27DDD11D8366E000F9C19D /* InputViewController.m in Sources */,
 				FF27DDA91D83657300F9C19D /* AppDelegate.m in Sources */,
 				FF27DDAC1D83657300F9C19D /* FirstViewController.m in Sources */,
+				FF27DDCE1D8366C800F9C19D /* SummaryViewController.m in Sources */,
 				FF27DDA61D83657300F9C19D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,25 +244,6 @@
 			targetProxy = FF27DDBE1D83657300F9C19D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		FF27DDB01D83657300F9C19D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FF27DDB11D83657300F9C19D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FF27DDB51D83657300F9C19D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FF27DDB61D83657300F9C19D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FF27DDC41D83657300F9C19D /* Debug */ = {
@@ -349,6 +334,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = piggy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sjyoung12.piggy;
@@ -360,6 +346,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = piggy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sjyoung12.piggy;

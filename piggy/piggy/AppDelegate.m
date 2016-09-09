@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+#import "SummaryViewController.h"
+#import "InputViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +20,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    
+    UINavigationController *nc1 = [[UINavigationController alloc] initWithRootViewController:[SummaryViewController new]];
+    UINavigationController *nc2 = [[UINavigationController alloc] initWithRootViewController:[InputViewController new]];
+    
+    UITabBarController *tabBarCtrl = [UITabBarController new];
+    tabBarCtrl.viewControllers = @[nc1, nc2];
+    [self.window setRootViewController:tabBarCtrl];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
