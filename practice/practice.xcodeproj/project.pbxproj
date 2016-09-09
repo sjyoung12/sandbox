@@ -9,12 +9,11 @@
 /* Begin PBXBuildFile section */
 		FFC8A53F1D1901ED0009C976 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC8A53E1D1901ED0009C976 /* main.m */; };
 		FFC8A5421D1901ED0009C976 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC8A5411D1901ED0009C976 /* AppDelegate.m */; };
-		FFC8A5451D1901ED0009C976 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC8A5441D1901ED0009C976 /* ViewController.m */; };
-		FFC8A5481D1901ED0009C976 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC8A5461D1901ED0009C976 /* Main.storyboard */; };
 		FFC8A54A1D1901ED0009C976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFC8A5491D1901ED0009C976 /* Assets.xcassets */; };
-		FFC8A54D1D1901ED0009C976 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC8A54B1D1901ED0009C976 /* LaunchScreen.storyboard */; };
 		FFC8A5581D1901ED0009C976 /* practiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC8A5571D1901ED0009C976 /* practiceTests.m */; };
 		FFC8A5631D1901ED0009C976 /* practiceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC8A5621D1901ED0009C976 /* practiceUITests.m */; };
+		FFC8A5751D19039B0009C976 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC8A5731D19039B0009C976 /* ViewController.m */; };
+		FFC8A5761D19039B0009C976 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFC8A5741D19039B0009C976 /* ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,11 +38,7 @@
 		FFC8A53E1D1901ED0009C976 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FFC8A5401D1901ED0009C976 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FFC8A5411D1901ED0009C976 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FFC8A5431D1901ED0009C976 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FFC8A5441D1901ED0009C976 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		FFC8A5471D1901ED0009C976 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FFC8A5491D1901ED0009C976 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FFC8A54C1D1901ED0009C976 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFC8A54E1D1901ED0009C976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFC8A5531D1901ED0009C976 /* practiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = practiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC8A5571D1901ED0009C976 /* practiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = practiceTests.m; sourceTree = "<group>"; };
@@ -51,6 +46,9 @@
 		FFC8A55E1D1901ED0009C976 /* practiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = practiceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC8A5621D1901ED0009C976 /* practiceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = practiceUITests.m; sourceTree = "<group>"; };
 		FFC8A5641D1901ED0009C976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFC8A5721D19039B0009C976 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FFC8A5731D19039B0009C976 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FFC8A5741D19039B0009C976 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +101,12 @@
 			children = (
 				FFC8A5401D1901ED0009C976 /* AppDelegate.h */,
 				FFC8A5411D1901ED0009C976 /* AppDelegate.m */,
-				FFC8A5431D1901ED0009C976 /* ViewController.h */,
-				FFC8A5441D1901ED0009C976 /* ViewController.m */,
-				FFC8A5461D1901ED0009C976 /* Main.storyboard */,
 				FFC8A5491D1901ED0009C976 /* Assets.xcassets */,
-				FFC8A54B1D1901ED0009C976 /* LaunchScreen.storyboard */,
 				FFC8A54E1D1901ED0009C976 /* Info.plist */,
 				FFC8A53D1D1901ED0009C976 /* Supporting Files */,
+				FFC8A5721D19039B0009C976 /* ViewController.h */,
+				FFC8A5731D19039B0009C976 /* ViewController.m */,
+				FFC8A5741D19039B0009C976 /* ViewController.xib */,
 			);
 			path = practice;
 			sourceTree = "<group>";
@@ -243,9 +240,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFC8A54D1D1901ED0009C976 /* LaunchScreen.storyboard in Resources */,
+				FFC8A5761D19039B0009C976 /* ViewController.xib in Resources */,
 				FFC8A54A1D1901ED0009C976 /* Assets.xcassets in Resources */,
-				FFC8A5481D1901ED0009C976 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFC8A5451D1901ED0009C976 /* ViewController.m in Sources */,
+				FFC8A5751D19039B0009C976 /* ViewController.m in Sources */,
 				FFC8A5421D1901ED0009C976 /* AppDelegate.m in Sources */,
 				FFC8A53F1D1901ED0009C976 /* main.m in Sources */,
 			);
@@ -306,25 +302,6 @@
 			targetProxy = FFC8A55F1D1901ED0009C976 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		FFC8A5461D1901ED0009C976 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FFC8A5471D1901ED0009C976 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FFC8A54B1D1901ED0009C976 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FFC8A54C1D1901ED0009C976 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FFC8A5651D1901ED0009C976 /* Debug */ = {
