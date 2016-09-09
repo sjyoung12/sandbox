@@ -11,8 +11,10 @@
 		FF27DDA91D83657300F9C19D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDA81D83657300F9C19D /* AppDelegate.m */; };
 		FF27DDB41D83657300F9C19D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF27DDB31D83657300F9C19D /* Assets.xcassets */; };
 		FF27DDC21D83657300F9C19D /* piggyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDC11D83657300F9C19D /* piggyTests.m */; };
-		FF27DDCE1D8366C800F9C19D /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDCD1D8366C800F9C19D /* SummaryViewController.m */; };
-		FF27DDD11D8366E000F9C19D /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDD01D8366E000F9C19D /* InputViewController.m */; };
+		FF27DDD61D836CCE00F9C19D /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDD41D836CCE00F9C19D /* SummaryViewController.m */; };
+		FF27DDD71D836CCE00F9C19D /* SummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF27DDD51D836CCE00F9C19D /* SummaryViewController.xib */; };
+		FF27DDDB1D836CDD00F9C19D /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDD91D836CDD00F9C19D /* InputViewController.m */; };
+		FF27DDDC1D836CDD00F9C19D /* InputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF27DDDA1D836CDD00F9C19D /* InputViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +37,12 @@
 		FF27DDBD1D83657300F9C19D /* piggyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = piggyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF27DDC11D83657300F9C19D /* piggyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = piggyTests.m; sourceTree = "<group>"; };
 		FF27DDC31D83657300F9C19D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF27DDCC1D8366C800F9C19D /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
-		FF27DDCD1D8366C800F9C19D /* SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryViewController.m; sourceTree = "<group>"; };
-		FF27DDCF1D8366E000F9C19D /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
-		FF27DDD01D8366E000F9C19D /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
+		FF27DDD31D836CCE00F9C19D /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
+		FF27DDD41D836CCE00F9C19D /* SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryViewController.m; sourceTree = "<group>"; };
+		FF27DDD51D836CCE00F9C19D /* SummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SummaryViewController.xib; sourceTree = "<group>"; };
+		FF27DDD81D836CDD00F9C19D /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
+		FF27DDD91D836CDD00F9C19D /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
+		FF27DDDA1D836CDD00F9C19D /* InputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,10 +89,7 @@
 				FF27DDB31D83657300F9C19D /* Assets.xcassets */,
 				FF27DDB81D83657300F9C19D /* Info.plist */,
 				FF27DDA41D83657300F9C19D /* Supporting Files */,
-				FF27DDCC1D8366C800F9C19D /* SummaryViewController.h */,
-				FF27DDCD1D8366C800F9C19D /* SummaryViewController.m */,
-				FF27DDCF1D8366E000F9C19D /* InputViewController.h */,
-				FF27DDD01D8366E000F9C19D /* InputViewController.m */,
+				FF27DDD21D83692100F9C19D /* ViewControllers */,
 			);
 			path = piggy;
 			sourceTree = "<group>";
@@ -108,6 +109,19 @@
 				FF27DDC31D83657300F9C19D /* Info.plist */,
 			);
 			path = piggyTests;
+			sourceTree = "<group>";
+		};
+		FF27DDD21D83692100F9C19D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF27DDD31D836CCE00F9C19D /* SummaryViewController.h */,
+				FF27DDD41D836CCE00F9C19D /* SummaryViewController.m */,
+				FF27DDD51D836CCE00F9C19D /* SummaryViewController.xib */,
+				FF27DDD81D836CDD00F9C19D /* InputViewController.h */,
+				FF27DDD91D836CDD00F9C19D /* InputViewController.m */,
+				FF27DDDA1D836CDD00F9C19D /* InputViewController.xib */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,7 +204,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF27DDDC1D836CDD00F9C19D /* InputViewController.xib in Resources */,
 				FF27DDB41D83657300F9C19D /* Assets.xcassets in Resources */,
+				FF27DDD71D836CCE00F9C19D /* SummaryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,10 +224,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF27DDD11D8366E000F9C19D /* InputViewController.m in Sources */,
 				FF27DDA91D83657300F9C19D /* AppDelegate.m in Sources */,
-				FF27DDCE1D8366C800F9C19D /* SummaryViewController.m in Sources */,
 				FF27DDA61D83657300F9C19D /* main.m in Sources */,
+				FF27DDD61D836CCE00F9C19D /* SummaryViewController.m in Sources */,
+				FF27DDDB1D836CDD00F9C19D /* InputViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
