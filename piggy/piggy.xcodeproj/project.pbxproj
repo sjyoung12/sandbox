@@ -15,6 +15,7 @@
 		FF27DDD71D836CCE00F9C19D /* SummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF27DDD51D836CCE00F9C19D /* SummaryViewController.xib */; };
 		FF27DDDB1D836CDD00F9C19D /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDD91D836CDD00F9C19D /* InputViewController.m */; };
 		FF27DDDC1D836CDD00F9C19D /* InputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF27DDDA1D836CDD00F9C19D /* InputViewController.xib */; };
+		FF27DDE01D83720000F9C19D /* ExpenseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDDF1D83720000F9C19D /* ExpenseDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		FF27DDD81D836CDD00F9C19D /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
 		FF27DDD91D836CDD00F9C19D /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
 		FF27DDDA1D836CDD00F9C19D /* InputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputViewController.xib; sourceTree = "<group>"; };
+		FF27DDDE1D83720000F9C19D /* ExpenseDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseDataSource.h; sourceTree = "<group>"; };
+		FF27DDDF1D83720000F9C19D /* ExpenseDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,7 @@
 		FF27DDA31D83657300F9C19D /* piggy */ = {
 			isa = PBXGroup;
 			children = (
+				FF27DDDD1D8371DA00F9C19D /* Model */,
 				FF27DDA71D83657300F9C19D /* AppDelegate.h */,
 				FF27DDA81D83657300F9C19D /* AppDelegate.m */,
 				FF27DDB31D83657300F9C19D /* Assets.xcassets */,
@@ -122,6 +126,15 @@
 				FF27DDDA1D836CDD00F9C19D /* InputViewController.xib */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FF27DDDD1D8371DA00F9C19D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF27DDDE1D83720000F9C19D /* ExpenseDataSource.h */,
+				FF27DDDF1D83720000F9C19D /* ExpenseDataSource.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF27DDE01D83720000F9C19D /* ExpenseDataSource.m in Sources */,
 				FF27DDA91D83657300F9C19D /* AppDelegate.m in Sources */,
 				FF27DDA61D83657300F9C19D /* main.m in Sources */,
 				FF27DDD61D836CCE00F9C19D /* SummaryViewController.m in Sources */,
