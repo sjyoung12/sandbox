@@ -16,6 +16,8 @@
 		FF27DDDB1D836CDD00F9C19D /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDD91D836CDD00F9C19D /* InputViewController.m */; };
 		FF27DDDC1D836CDD00F9C19D /* InputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF27DDDA1D836CDD00F9C19D /* InputViewController.xib */; };
 		FF27DDE01D83720000F9C19D /* ExpenseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27DDDF1D83720000F9C19D /* ExpenseDataSource.m */; };
+		FF8FF4B51D90522800E309FD /* CVTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8FF4B31D90522800E309FD /* CVTableViewCell.m */; };
+		FF8FF4B61D90522800E309FD /* CVTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8FF4B41D90522800E309FD /* CVTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,9 @@
 		FF27DDDA1D836CDD00F9C19D /* InputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputViewController.xib; sourceTree = "<group>"; };
 		FF27DDDE1D83720000F9C19D /* ExpenseDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseDataSource.h; sourceTree = "<group>"; };
 		FF27DDDF1D83720000F9C19D /* ExpenseDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseDataSource.m; sourceTree = "<group>"; };
+		FF8FF4B21D90522800E309FD /* CVTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVTableViewCell.h; sourceTree = "<group>"; };
+		FF8FF4B31D90522800E309FD /* CVTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVTableViewCell.m; sourceTree = "<group>"; };
+		FF8FF4B41D90522800E309FD /* CVTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CVTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +129,9 @@
 				FF27DDD81D836CDD00F9C19D /* InputViewController.h */,
 				FF27DDD91D836CDD00F9C19D /* InputViewController.m */,
 				FF27DDDA1D836CDD00F9C19D /* InputViewController.xib */,
+				FF8FF4B21D90522800E309FD /* CVTableViewCell.h */,
+				FF8FF4B31D90522800E309FD /* CVTableViewCell.m */,
+				FF8FF4B41D90522800E309FD /* CVTableViewCell.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -217,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8FF4B61D90522800E309FD /* CVTableViewCell.xib in Resources */,
 				FF27DDDC1D836CDD00F9C19D /* InputViewController.xib in Resources */,
 				FF27DDB41D83657300F9C19D /* Assets.xcassets in Resources */,
 				FF27DDD71D836CCE00F9C19D /* SummaryViewController.xib in Resources */,
@@ -241,6 +250,7 @@
 				FF27DDA91D83657300F9C19D /* AppDelegate.m in Sources */,
 				FF27DDA61D83657300F9C19D /* main.m in Sources */,
 				FF27DDD61D836CCE00F9C19D /* SummaryViewController.m in Sources */,
+				FF8FF4B51D90522800E309FD /* CVTableViewCell.m in Sources */,
 				FF27DDDB1D836CDD00F9C19D /* InputViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +425,7 @@
 				FF27DDC81D83657300F9C19D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF27DDC91D83657300F9C19D /* Build configuration list for PBXNativeTarget "piggyTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +434,7 @@
 				FF27DDCB1D83657300F9C19D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
